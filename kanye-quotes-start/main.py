@@ -3,6 +3,7 @@ import requests
 
 def get_quote():
     kanye_api_call = requests.get(url='https://api.kanye.rest')
+    kanye_api_call.raise_for_status()
     data = kanye_api_call.json()
     canvas.itemconfigure(quote_text, text=f"{data['quote']}")
     #Write your code here.
